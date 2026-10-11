@@ -1,3 +1,9 @@
+package pruebas;
+
+import estructura.LinkedList;
+import historial.HistorialNavegacion;
+import modelo.PaginaWeb;
+
 public class PruebasProyecto {
     private static int pruebasEjecutadas;
 

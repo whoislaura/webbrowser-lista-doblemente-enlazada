@@ -1,3 +1,8 @@
+package app;
+
+import estructura.LinkedList;
+import historial.HistorialNavegacion;
+import modelo.PaginaWeb;
 import java.util.Scanner;
 
 public class Main {

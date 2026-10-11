@@ -1,3 +1,5 @@
+package estructura;
+
 public interface IList<T> {
 
     void add(T e);

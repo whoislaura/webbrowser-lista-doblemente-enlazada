@@ -1,3 +1,8 @@
+package historial;
+
+import estructura.LinkedList;
+import modelo.PaginaWeb;
+
 public class HistorialNavegacion {
     private final LinkedList<PaginaWeb> paginas;
 

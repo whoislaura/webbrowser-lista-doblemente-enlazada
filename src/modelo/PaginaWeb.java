@@ -1,3 +1,5 @@
+package modelo;
+
 public class PaginaWeb {
     private final String url;
     private final String tituloPagina;

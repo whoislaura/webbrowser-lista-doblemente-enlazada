@@ -1,3 +1,5 @@
+package estructura;
+
 public class Node<T> {
     protected T val;
     protected Node<T> next;

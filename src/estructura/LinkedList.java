@@ -1,3 +1,5 @@
+package estructura;
+
 public class LinkedList<T> implements IList<T>{
 
     private Node<T> head, tail;
