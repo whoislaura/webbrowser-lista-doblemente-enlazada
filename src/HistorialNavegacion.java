@@ -10,7 +10,15 @@ public class HistorialNavegacion {
             throw new IllegalArgumentException("La página no puede ser nula");
         }
 
-        paginas.add(pagina);
+        int indice = 0;
+        int horaNueva = pagina.getHoraVisitaSegundos();
+
+        while (indice < paginas.size()
+                && paginas.get(indice).getHoraVisitaSegundos() >= horaNueva) {
+            indice++;
+        }
+
+        paginas.add(pagina, indice);
     }
 
     public boolean EliminarPaginaPorUrl(String url) {
@@ -18,7 +26,7 @@ public class HistorialNavegacion {
             throw new IllegalArgumentException("La URL no puede estar vacía");
         }
 
-        for (int i = paginas.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < paginas.size(); i++) {
             PaginaWeb pagina = paginas.get(i);
 
             if (pagina.getUrl().equals(url)) {
@@ -33,7 +41,7 @@ public class HistorialNavegacion {
     public LinkedList<PaginaWeb> MostrarHistorialReciente() {
         LinkedList<PaginaWeb> historialReciente = new LinkedList<>();
 
-        for (int i = paginas.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < paginas.size(); i++) {
             historialReciente.add(paginas.get(i));
         }
 
@@ -48,7 +56,7 @@ public class HistorialNavegacion {
         String palabraBuscada = palabra.trim();
         LinkedList<String> urlsEncontradas = new LinkedList<>();
 
-        for (int i = paginas.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < paginas.size(); i++) {
             PaginaWeb pagina = paginas.get(i);
 
             if (contieneSinDistinguirMayusculas(
