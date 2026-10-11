@@ -83,7 +83,7 @@ Para ejecutar las pruebas:
 java -cp out pruebas.PruebasProyecto
 ```
 
-La clase `PruebasProyecto` cubre conversiones y validaciones de hora, inserciones y eliminaciones en distintos índices, comportamiento de los enlaces, orden del historial, búsquedas, URL repetidas, vaciado por hora, lista vacía e índices e entradas inválidos. En la última ejecución, las **69 pruebas pasaron**.
+La clase `PruebasProyecto` cubre conversiones y validaciones de hora, inserciones y eliminaciones en distintos índices, comportamiento de los enlaces, orden del historial, búsquedas, URL repetidas, vaciado por hora, lista vacía e índices y entradas inválidas. En la última ejecución, las **69 pruebas pasaron**.
 
 ## Presentación
 
