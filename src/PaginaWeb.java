@@ -11,7 +11,7 @@ public class PaginaWeb {
             throw new IllegalArgumentException("El título no puede estar vacío");
         }
 
-        this.url = url;
+        this.url = url.trim();
         this.tituloPagina = tituloPagina;
         this.horaVisitaSegundos = convertirHoraASegundos(horaVisita);
     }
@@ -41,28 +41,30 @@ public class PaginaWeb {
             throw new IllegalArgumentException("La hora no puede ser nula");
         }
 
-        String[] partes = hora.split(":", -1);
-        if (partes.length != 3
-                || partes[0].length() != 2
-                || partes[1].length() != 2
-                || partes[2].length() != 2) {
+        if (hora.length() != 8
+                || hora.charAt(2) != ':'
+                || hora.charAt(5) != ':'
+                || !esDigitoAscii(hora.charAt(0))
+                || !esDigitoAscii(hora.charAt(1))
+                || !esDigitoAscii(hora.charAt(3))
+                || !esDigitoAscii(hora.charAt(4))
+                || !esDigitoAscii(hora.charAt(6))
+                || !esDigitoAscii(hora.charAt(7))) {
             throw new IllegalArgumentException("La hora debe tener formato HH:mm:ss");
         }
 
-        try {
-            int horas = Integer.parseInt(partes[0]);
-            int minutos = Integer.parseInt(partes[1]);
-            int segundos = Integer.parseInt(partes[2]);
+        int horas = (hora.charAt(0) - '0') * 10 + (hora.charAt(1) - '0');
+        int minutos = (hora.charAt(3) - '0') * 10 + (hora.charAt(4) - '0');
+        int segundos = (hora.charAt(6) - '0') * 10 + (hora.charAt(7) - '0');
 
-            if (horas < 0 || horas > 23
-                    || minutos < 0 || minutos > 59
-                    || segundos < 0 || segundos > 59) {
-                throw new IllegalArgumentException("La hora está fuera de rango");
-            }
-
-            return horas * 3600 + minutos * 60 + segundos;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("La hora debe contener números", e);
+        if (horas > 23 || minutos > 59 || segundos > 59) {
+            throw new IllegalArgumentException("La hora está fuera de rango");
         }
+
+        return horas * 3600 + minutos * 60 + segundos;
+    }
+
+    private static boolean esDigitoAscii(char caracter) {
+        return caracter >= '0' && caracter <= '9';
     }
 }

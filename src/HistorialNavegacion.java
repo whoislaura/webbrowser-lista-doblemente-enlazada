@@ -26,10 +26,11 @@ public class HistorialNavegacion {
             throw new IllegalArgumentException("La URL no puede estar vacía");
         }
 
+        String urlBuscada = url.trim();
         for (int i = 0; i < paginas.size(); i++) {
             PaginaWeb pagina = paginas.get(i);
 
-            if (pagina.getUrl().equals(url)) {
+            if (pagina.getUrl().equals(urlBuscada)) {
                 paginas.remove(i);
                 return true;
             }

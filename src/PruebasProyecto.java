@@ -21,6 +21,11 @@ public class PruebasProyecto {
                 "14:35:08 debe convertirse a 52508 segundos");
         verificar("14:35:08".equals(pagina.getHoraVisita()),
                 "La hora debe mostrarse de nuevo en formato HH:mm:ss");
+
+        PaginaWeb urlConEspacios = new PaginaWeb(
+                "  https://espacios.example  ", "Página de ejemplo", "14:35:08");
+        verificar("https://espacios.example".equals(urlConEspacios.getUrl()),
+                "La URL debe guardarse sin espacios externos");
     }
 
     private static void probarLinkedList() {
@@ -139,6 +144,12 @@ public class PruebasProyecto {
 
         verificar(!historial.EliminarPaginaPorUrl("https://no-existe.example"),
                 "Eliminar una URL inexistente debe devolver false");
+
+        PaginaWeb urlConEspacios = new PaginaWeb(
+                "  https://espacios.example  ", "Página con espacios", "12:00:00");
+        historial.RegistrarVisita(urlConEspacios);
+        verificar(historial.EliminarPaginaPorUrl("  https://espacios.example  "),
+                "Eliminar debe recortar espacios externos de la URL ingresada");
     }
 
     private static void probarVaciadoPorHora() {
@@ -204,6 +215,12 @@ public class PruebasProyecto {
         verificarExcepcion(IllegalArgumentException.class,
                 () -> new PaginaWeb("https://ejemplo.com", "Ejemplo", "hora"),
                 "crear página con hora mal formada");
+        verificarExcepcion(IllegalArgumentException.class,
+                () -> PaginaWeb.convertirHoraASegundos("+1:00:00"),
+                "rechazar signo más en la hora");
+        verificarExcepcion(IllegalArgumentException.class,
+                () -> PaginaWeb.convertirHoraASegundos("   "),
+                "rechazar hora vacía o con espacios");
         verificarExcepcion(IllegalArgumentException.class,
                 () -> PaginaWeb.convertirHoraASegundos("12:60:00"),
                 "convertir minutos fuera de rango");
