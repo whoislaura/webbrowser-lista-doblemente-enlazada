@@ -91,4 +91,12 @@ Pendiente de agregar. Cuando esté disponible, se incluirá aquí el enlace al P
 
 ## Uso de inteligencia artificial
 
-ChatGPT apoyó la organización y pruebas del proyecto.
+El equipo utilizó herramientas de inteligencia artificial como apoyo en este proyecto. Las partes donde se usó cada una son las siguientes:
+
+| Herramienta | Partes del proyecto donde se usó |
+|---|---|
+| ChatGPT | Generación de casos de prueba y corrección de errores. |
+| Claude | Análisis del problema, reparto de la exposición oral y redacción del prompt para la presentación. |
+| Gemini | Diseño y generación de las diapositivas de la presentación. |
+
+El equipo revisó el código y la presentación resultantes y puede explicarlos.
