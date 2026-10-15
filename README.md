@@ -87,7 +87,7 @@ La clase `PruebasProyecto` cubre conversiones y validaciones de hora, insercione
 
 ## Presentación
 
-Pendiente de agregar. Cuando esté disponible, se incluirá aquí el enlace al PDF o a las diapositivas.
+- [Descargar presentación (PowerPoint)](presentacion/Presentacion_Equipo8.pptx)
 
 ## Uso de inteligencia artificial
 
